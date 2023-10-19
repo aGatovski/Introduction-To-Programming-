@@ -1,0 +1,24 @@
+#include <iostream>
+
+int main()
+{
+    int a;
+    std::cin >> a;
+   
+    int edinici = a % 10;
+   a/=10;
+    int desetici = a % 10;
+    a /= 10;
+    
+    int stotici = a % 10;
+    a /= 10;
+ 
+    int hilqdni = a;
+   
+    int fNumber = hilqdni * 10 + edinici;
+    int sNumber = stotici * 10 + desetici;
+    std::cout << fNumber << " " << sNumber << std::endl;
+    if(fNumber<sNumber) std::cout <<"less" << std::endl;
+    else if (fNumber == sNumber) std::cout << "equal" << std::endl;
+    else std::cout << "greater" << std::endl;
+}
