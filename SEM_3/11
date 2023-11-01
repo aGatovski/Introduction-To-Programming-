@@ -1,0 +1,20 @@
+#include <iostream>
+
+int main()
+{
+    int a=1 ,b=1,n;
+    
+    std::cin >>n;
+    std::cout << a<< " " << b<<" ";
+    int fib = a+b;
+    while (fib<=n)
+    {
+        
+        std::cout << fib<< " ";
+        a = b;
+        b = fib;
+        fib = a + b;
+    }
+   
+    
+}
