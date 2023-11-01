@@ -1,0 +1,59 @@
+
+
+#include <iostream>
+
+int main()
+{
+    int n;
+    std::cin >> n;
+    for (int i = 1;i<=n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            std::cout << j<<" ";
+           
+        }
+        if (i == n)
+        {
+            for (int l = 0; l < n; l++)
+            {
+                std::cout << "-";
+            }
+            std::cout << " ";
+        }
+        else
+        {
+            for (int s = 0; s < (n - i) * 4 + n; s++)
+            {
+                std::cout << " ";
+            }
+            std::cout << " ";
+        }
+        for (int k = i; k >= 1; k--)
+        {
+            std::cout << k<<" ";
+        }
+        std::cout << std::endl;
+
+    }
+
+    for (int i = n-1;i >= 1; i--)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            std::cout << j<<" ";
+        }
+        for (int s = 0; s < (n - i) * 4+n+1; s++)
+        {
+            std::cout << " ";
+        }
+        for (int k = i; k >= 1; k--)
+        {
+            std::cout << k<<" ";
+        }
+        std::cout << std::endl;
+
+    }
+    
+}
+
