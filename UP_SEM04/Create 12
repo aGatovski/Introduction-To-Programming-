@@ -1,0 +1,50 @@
+int ObshtKratno3(int smallest, int second, int third)
+{
+    if (smallest > second)//7,5,6
+    {
+        if (smallest > third)
+        {
+            int temp = third;
+            third = smallest;
+            smallest = temp;
+
+        }
+        if (smallest > second)
+        {
+            int temp = second;
+            second = smallest;
+            smallest = temp;
+        }
+    }
+
+    if (smallest > third)//7,5,6
+    {
+        if (smallest > second)
+        {
+            int temp = second;
+            second = smallest;
+            smallest = temp;
+        }
+
+        if (smallest > third)
+        {
+            int temp = third;
+            third = smallest;
+            smallest = temp;
+
+        }
+    }
+    if (second > third)
+    {
+        int temp = third;
+        third = second;
+        second = temp;
+    }
+    int temp = smallest;
+    while (smallest % second != 0 || smallest% third != 0)
+    {
+        smallest += temp;
+    }
+    
+    return smallest;
+}
