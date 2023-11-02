@@ -1,0 +1,11 @@
+void isInterval(int number,int lqvagranica,int dqsnagranica) 
+{
+    if (lqvagranica > dqsnagranica)
+    {
+        int temp = dqsnagranica;
+        dqsnagranica = lqvagranica;
+        lqvagranica = temp;
+    }
+    if (number >= lqvagranica && number <= dqsnagranica) { std::cout << "true"; }
+    else{ std::cout << "false"; }
+}
