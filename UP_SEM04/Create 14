@@ -9,3 +9,34 @@ void isInterval(int number,int lqvagranica,int dqsnagranica)
     if (number >= lqvagranica && number <= dqsnagranica) { std::cout << "true"; }
     else{ std::cout << "false"; }
 }
+
+//14
+
+#include <iostream>
+
+bool askUser(int number, int from, int to)
+{
+    if (from > to)
+    {
+        int temp = to;
+        to = from;
+        from = temp;
+    }
+    if (number >= from && number <= to) { std::cout << "Correct!" << std::endl;
+    return true; }
+    else { 
+        std::cout << "Number not in range"<<std::endl; 
+    return false; 
+    }
+}
+
+int main()
+{
+    int a;
+    do
+    {
+        std::cout << "Insert number in range[-100,100]!"<<std::endl;
+        std::cin >> a;
+    } while (askUser(a,-100,100)!=true);
+   
+}
