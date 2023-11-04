@@ -1,0 +1,15 @@
+int twoClose(int a)
+{
+	int two = 1;
+	bool br = true;
+	while (br)
+	{
+		if (a - two < 0) 
+		{
+			return two;
+			break;
+		}
+		two *= 2;
+	}
+	
+}
