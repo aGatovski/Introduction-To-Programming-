@@ -1,0 +1,47 @@
+bool isPrime(int number)
+{
+	if (number == 2)return true;
+	else if (number == 1 || number % 2 == 0) return false;
+	else 
+	{
+		for (int i = 3; i < number; i+=2)
+		{
+			if (number % i == 0) return false;
+		}
+		return true;
+	}
+}
+void twoPrimeMakeOne(int number)
+{
+	int two = 2;
+	for (int i = 3; i < number; i+=2)
+	{
+		if (two + i == number) std::cout << two << " + " << i << " make number" << std::endl;
+	}
+	for (int i = 3; i < number; i+=2)
+	{
+		for (int j = 5; j < number; j++)
+		{
+			if (j+ i == number) std::cout << i << " + " << j << " make number" << std::endl;
+		}
+	}
+}
+int main()
+{
+    int a;
+	char action;
+    std::cin >> a;
+   // std::cout << calculator(a,b,action)<<std::endl;
+	//std::cout << NOD(NOD(a,b),NOD(c,d)) << std::endl;
+	//std::cout << twoClose(255);
+	std::cout << isPrime(a)<<std::endl;
+	if (isPrime(a))
+	{
+		if(a>=2)std::cout<<2<<" ";
+		for ( int  i = 3; i <a; i+=2)
+		{
+			std::cout << i <<" ";
+		}
+	}
+	twoPrimeMakeOne(31);
+}
