@@ -1,0 +1,36 @@
+#include <iostream>
+
+void factorizeRecursive(int num, int divisor = 2) {
+    if (num <= 1) {
+        return;
+    }
+
+    if (num % divisor == 0) {
+        std::cout << divisor;
+        num /= divisor;
+        if (num > 1) {
+            std::cout << ".";
+        }
+        factorizeRecursive(num, divisor);
+    }
+    else {
+        factorizeRecursive(num, divisor + 1);
+    }
+}
+
+int main() {
+    int number;
+    std::cout << "Enter a number: ";
+    std::cin >> number;
+
+    if (number <= 1) {
+        std::cout << "No factorization for numbers less than or equal to 1." << std::endl;
+        return 0;
+    }
+
+    std::cout << "Factorization: ";
+    factorizeRecursive(number);
+    std::cout << std::endl;
+
+    
+}
