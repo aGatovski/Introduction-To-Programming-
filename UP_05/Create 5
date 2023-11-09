@@ -1,0 +1,38 @@
+#include <iostream>
+const int MAX_length = 1000;
+
+int missingElementInArray(int arr[])
+{
+	int sum = 210;
+
+	for (int i = 0; i < 20; i++)
+	{
+		sum -= arr[i];
+	}
+
+	return sum;
+}
+
+int main()
+{
+    
+ 
+	int arr[MAX_length];
+	int arr20[] = { 0,1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20 };
+	std::cout << "Array Length = ";
+
+	int length;
+	std::cin >> length;
+
+	std::cout << "Insert array elements: "<<std::endl;
+
+	for (int i = 0; i < length; i++)
+	{
+		int a;
+		std::cin >> a;
+
+		arr[i] = a;
+
+	}
+	std::cout <<"Missing element is " << missingElementInArray(arr20);
+}
