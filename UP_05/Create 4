@@ -1,0 +1,41 @@
+#include <iostream>
+const int MAX_length = 1000;
+
+int main()
+{
+    
+ 
+	int arr[MAX_length];
+
+	std::cout << "Array Length = ";
+
+	int length;
+	std::cin >> length;
+
+	std::cout << "Insert array elements: ";
+
+	for (int i = 0; i < length; i++)
+	{
+		int a;
+		std::cin >> a;
+
+		arr[i] = a;
+
+	}
+
+	std::cout << "Insert array element to be removed: ";
+	int indexRemove;
+	std::cin >> indexRemove;
+
+	int removedArr[MAX_length];
+	
+	for (int i = 0; i < length-1; i++)
+	{
+		if (i < indexRemove) removedArr[i] = arr[i];
+		else removedArr[i] = arr[i+1];
+	}
+	for (int i = 0; i < length-1; i++)
+	{
+		std::cout << removedArr[i] << " ";
+	}
+}
