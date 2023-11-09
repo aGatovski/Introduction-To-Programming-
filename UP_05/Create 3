@@ -1,0 +1,39 @@
+#include <iostream>
+const int MAX_length = 1000;
+
+int main()
+{
+    
+ 
+	int arr[MAX_length];
+
+	int length;
+
+	std::cin >> length;
+
+	for (int i = 0; i < length; i++)
+	{
+		int a;
+		std::cin >> a;
+
+		arr[i] = a;
+
+	}
+
+	int reverseArr[MAX_length];
+	
+	for (int i = 0; i < length; i++)
+	{
+		if (i < length / 2) 
+		{
+			int prom = length / 2 - i - 1;
+			reverseArr[i] = arr[prom];	
+		}
+		else reverseArr[i] = arr[i];
+	}
+	for (int i = 0; i < length; i++)
+	{
+		std::cout << reverseArr[i] << " ";
+	}
+	
+}
