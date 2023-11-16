@@ -1,0 +1,49 @@
+bool containsN(int a, int num)
+{
+	while (a != 0)
+	{
+		int temp = a % 10;
+		if (temp == num) return true;
+		a /= 10;
+	}
+	return false;
+}
+
+void toZero(int* a, int length)
+{
+	for (int i = 0;  i < length;  i++)
+	{
+		if (!containsN(a[i], i)) a[i] = 0;
+	}
+}
+int main()
+{
+
+
+	
+	int arr20[20] = { 11 , 2, 2 , 3, 3 , 5, 6 ,7, 8 ,9 ,9 ,9 ,14 ,1, 7, 9, 10 ,5, 3 ,4 };
+	//int arr[MAX_length] = { 3, 3, 2, 2, 2, 5, 2, 2, 3, 3, 3 };
+	int a = 2;
+	int b = 8;
+	//foundIn(arr20);
+	//	isSorted(arr20,20);
+	//std::cout << std::endl;
+	//isSorted(arrS,5);
+	//Average(arrS, 4);
+	int arrF[MAX_length];
+	//fillTheArr(arr,7, 2, 8,arrF);
+	//LongestDecreasing(arr, 7);
+	//int arr[MAX_length] = { 3, 3, 2, 2, 2, 5, 2, 2, 3, 3, 3 };
+	//LongestEquals(arr, 11);
+
+
+	int arr[MAX_length] = { 45, 62, 23, 47, 47, 65, 100 };
+
+	toZero(arr,7);
+
+	for (int i = 0; i < 7; i++)
+	{
+		std::cout << arr[i] << std::endl;
+	}
+
+}
