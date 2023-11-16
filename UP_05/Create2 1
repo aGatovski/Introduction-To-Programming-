@@ -1,0 +1,12 @@
+void fillTheArr(int arr[],int length, int a, int b ,int* arrF )
+{
+	int c = 0;
+	for (int i = 0; i < length; i++)
+	{
+		if (arr[i] >= a && arr[i] <= b) { arrF[c] = arr[i]; c++; }
+	}
+	for (int i = 0; i < c; i++)
+	{
+		std::cout << arrF[i]<<std::endl;
+	}
+}
