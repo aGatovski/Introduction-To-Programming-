@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+const int MaxLength = 1000;
+
+void ADD(int* array,int a,int position)
+{
+	array[position] = a;
+}
+bool Contains(int arr[],int len, int num)
+{
+	for (int i = 0; i < len; i++)
+	{
+		if (arr[i] == num) return true;
+	}
+	return false;
+}
+void findUnion( int arr1[], int arr2[],int len1, int len2 )
+{
+	int Union[MaxLength];
+	int lenU = len1;
+	for (int i = 0; i < len1; i++)
+	{
+		Union[i] = arr1[i];
+	}
+	for (int i =0; i < len2; i++)
+	{
+		if (!Contains(Union, lenU, arr2[i]))
+		{
+			
+			Union[lenU] = arr2[i];
+			lenU++;
+		}
+
+	}
+	for (int i = 0; i < lenU; i++)
+	{
+		cout << Union[i] << endl;
+	}
+}
+
+void findIntersection(int arr1[], int arr2[], int len1, int len2)
+{
+	int Intersected[MaxLength];
+	int lenI = 0;
+	
+	for (int i = 0; i < len1; i++)
+	{
+		if(Contains(arr2,len2,arr1[i])) {
+			Intersected[lenI] = arr1[i];
+			lenI++;
+		}
+		
+	}
+	for (int i = 0; i < lenI; i++)
+	{
+		cout << Intersected[i] << endl;
+	}
+	
+}
+
+
+int main()
+{
+	const int length1 = 5;
+	const int length2 = 4;
+	int array1[length1] = { 2, 4, 1, 7, 8 };
+	int array2[length2] = { 1, 2, 3, 5 };
+	findUnion(array1, array2, length1, length2);
+	cout << endl;
+	findIntersection(array1, array2, length1, length2);
+}
