@@ -1,0 +1,91 @@
+#include <iostream>
+using namespace std;
+const int MaxLength = 1000;
+
+
+bool Contains(int arr[],int len, int num)
+{
+	for (int i = 0; i < len; i++)
+	{
+		if (arr[i] == num) return true;
+	}
+	return false;
+}
+
+void remove1stElement(int* arr, int len)
+{
+	int newArr[MaxLength];
+	int newLen = 0;
+	for (int i = 1; i < len; i++)
+	{
+		 newArr[newLen] = arr[i];
+		 newLen++;
+	}
+	for (int i = 0; i < newLen; i++)
+	{
+		arr[i] = newArr[i];	
+	}
+}
+
+void MergedSortedArray(int* arr1, int len1, int* arr2, int len2)
+{
+	int sorted[MaxLength];
+	int lenS = len1+len2;
+
+	for (int i = 0; i < lenS; i++)
+	{
+		if (arr1[0] >= arr2[0] && len2 > 0) {
+			sorted[i] = arr2[0]; 
+			remove1stElement(arr2, len2);
+			len2--; 
+		}
+
+		else {
+			sorted[i] = arr1[0];
+			remove1stElement(arr1, len1);
+			len1--;
+		}
+	}
+
+	
+	for (int i = 0; i < lenS; i++)
+	{
+		cout << sorted[i]<< endl;
+	}
+}
+
+int main()
+{	
+	cout << "Insert array1 - length";
+
+	int array1[MaxLength];
+	 int length1;
+	 cin >> length1;
+
+	 cout << "Insert array1 - elements";
+
+	 for (int i = 0; i < length1; i++)
+	 {
+		 int num;
+		 cin >> num;
+		 array1[i] = num;
+	 }
+
+	 cout << "Insert array2 - length";
+
+	 int array2[MaxLength];
+	 int length2;
+	 cin >> length2;
+
+	 cout << "Insert array2 - elements";
+
+	 for (int i = 0; i < length2; i++)
+	 {
+		 int num;
+		 cin >> num;
+		 array2[i] = num;
+	 }
+	 MergedSortedArray(array1, length1, array2, length2);
+	 
+
+}
