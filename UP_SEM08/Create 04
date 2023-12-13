@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int findNotDuplicated(const int* arr, unsigned length) {
+    int result = 0;
+    for (unsigned i = 0; i < length; i++) {
+        result ^= arr[i];
+    }
+
+    return result;
+}
+int main()
+{
+    int arr[7] = { 9, 18, 9, 12, 18, 15, 12 };
+    int a = findNotDuplicated(arr, 7);
+    cout << a;
+   
+}
