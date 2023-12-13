@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+const int MAX = 100;
+
+int main() {
+
+	int matrix[MAX][MAX];
+	int length;
+	cin >> length;
+	for (int i = 0; i < length; i++)
+	{
+		for (int j = 0; j < length; j++)
+		{
+			int a;
+			cin >> a;
+			matrix[i][j] = a;
+		}
+	}
+
+
+	cout << "Zigzag" << endl;
+	int zig = 0;
+	for (int i = 0; i < length; i++)
+	{
+		if (zig == 0) {
+			for (int j = 0; j < length; j++)
+			{
+				cout << matrix[i][j];
+			}
+		}
+		else {
+			for (int j = length-1; j >=0; j--)
+			{
+				cout << matrix[i][j];
+			}
+			zig = 0;
+			continue;
+		}
+		cout << endl;
+		zig = 1;
+	}
+	
+}
