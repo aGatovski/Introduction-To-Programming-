@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+const int MAX = 100;
+
+
+void sumMatrix(int matrix[][MAX], int length,int matrix2[][MAX]) {
+	
+	for (int i = 0; i < length; i++)
+	{
+		for (int j = 0; j < length; j++)
+		{
+			matrix[i][j] += matrix2[i][j];
+		}
+	}
+
+	for (int i = 0; i < length; i++)
+	{
+		for (int j = 0; j < length; j++)
+		{
+			cout << matrix[i][j] <<" " ;
+		}
+		cout << endl;
+	}
+}
+
+void matrixXNumber(int matrix[][MAX], int length, int num) {
+	for (int i = 0; i < length; i++)
+	{
+		for (int j = 0; j < length; j++)
+		{
+			matrix[i][j] *= num;
+		}
+		
+	}
+
+
+
+	for (int i = 0; i < length; i++)
+	{
+		for (int j = 0; j < length; j++)
+		{
+			cout << matrix[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+
+
+int main() {
+
+	int matrix[MAX][MAX];
+	int length;
+	cin >> length;
+
+
+	for (int i = 0; i < length; i++)
+	{
+		for (int j = 0; j < length; j++)
+		{
+			int a;
+			cin >> a;
+			matrix[i][j] = a;
+		}
+	}
+
+
+	int matrix2[MAX][MAX];
+	for (int i = 0; i < length; i++)
+	{
+		for (int j = 0; j < length; j++)
+		{
+			int a;
+			cin >> a;
+			matrix2[i][j] = a;
+		}
+	}
+
+
+	sumMatrix(matrix, length, matrix2);
+	matrixXNumber(matrix, length, 2);
+
+	
+	
+}
