@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+const int MAX = 100;
+
+bool isTriangle(int matrix[][MAX], int length) {
+	for (int  i = 1; i < length; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			if (matrix[i][j] != 0) return false;
+		}
+	}
+	return true;
+}
+
+
+int main() {
+
+	int matrix[MAX][MAX];
+	int length;
+	cin >> length;
+	for (int i = 0; i < length; i++)
+	{
+		for (int j = 0; j < length; j++)
+		{
+			int a;
+			cin >> a;
+			matrix[i][j] = a;
+		}
+	}
+
+	cout << isTriangle(matrix, length);
+	
+}
