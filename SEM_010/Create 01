@@ -1,21 +1,44 @@
 #include<iostream>
 using namespace std;
 
-void swap(int& a, int& b) {
+//void toUpper(char& a) {
+//	a -= 'A' - 'a';
+//}
+//
+//void toLower(char*& a) {
+//	a += 'a' -  'A';
+//}
 
-	int c = b;
-	b = a;
-	a = c;
+void  toUpper(char* a) {
+
+	 *a -= 'A' - 'a';
 }
+
+void toLower(char* a) {
+	 *a += 'a' - 'A';
+}
+
+
 
 
 int main()
 {
 
-	int d = 5;
-	int q = 10;
 
-	swap(d, q);
-	cout << d << " " << q;
+	 char b = 'B';
+		toLower(&b);
+		cout << b <<endl;
+
+
+	char c = 'b';
+	toUpper(&c);
+	cout << c;
+
+
+	
+	
 
 }
+
+
+
