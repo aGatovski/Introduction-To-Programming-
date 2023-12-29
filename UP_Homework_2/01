@@ -1,0 +1,90 @@
+#include <iostream>
+
+constexpr unsigned MAX_SIZE = 65;
+constexpr unsigned BINARY_LENGTH = 8;
+
+void swap(unsigned& a, unsigned& b) {
+    unsigned c = a;
+    a = b;
+    b = c;
+}
+
+void reverseArray(unsigned* arr, const unsigned length) {
+    for (unsigned i = 0; i < length / 2; i++) {
+        swap(arr[i], arr[length - i - 1]);
+    }
+}
+
+int convertCharToInt(const char a) {
+    return a;
+}
+
+char convertIntToChar(const unsigned number) {
+    return number;
+}
+
+unsigned binaryToDecimal(const unsigned* binaryNumber, const unsigned length) {
+    unsigned decimal = 0;
+    for (unsigned i = 0; i < length; i++) {
+        decimal = 2 * decimal + binaryNumber[i];
+    }
+    return decimal;
+}
+
+unsigned* decimalToBinary(unsigned decimal) {
+    unsigned* arrayPTR = new unsigned[BINARY_LENGTH];
+    for (unsigned i = 0; i < BINARY_LENGTH; i++) {
+        unsigned lastDigit = decimal % 2;
+        arrayPTR[i] = lastDigit;
+        decimal /= 2;
+    }
+    reverseArray(arrayPTR, BINARY_LENGTH);
+    return arrayPTR;
+}
+
+unsigned* newBinary(const unsigned* binaryNumber) {
+    unsigned* pointerToBinary = new unsigned[16];
+    for (unsigned i = 0, j = 0; i < BINARY_LENGTH / 2; i++, j += 2) {
+        pointerToBinary[j] = !binaryNumber[i];
+        pointerToBinary[j + 1] = binaryNumber[i];
+    }
+    for (unsigned i = 4, j = 8; i < BINARY_LENGTH; i++, j += 2) {
+        pointerToBinary[j] = !binaryNumber[i];
+        pointerToBinary[j + 1] = binaryNumber[i];
+    }
+    return pointerToBinary;
+}
+
+char* encodeFinalString(const char* input) {
+    char* finalString = new char[MAX_SIZE];
+    unsigned i = 0;
+
+    while (input[i] != '\0') {
+        unsigned charInt = convertCharToInt(input[i]);
+        unsigned* pointerToBinary = decimalToBinary(charInt);
+        unsigned* pointerToNewBinaryRepresentation = newBinary(pointerToBinary);
+
+        unsigned const decimal1 = binaryToDecimal(pointerToNewBinaryRepresentation, 8);
+        unsigned const decimal2 = binaryToDecimal(pointerToNewBinaryRepresentation + 8, 8);
+
+        finalString[i++] = convertIntToChar(decimal1);
+        finalString[i++] = convertIntToChar(decimal2);
+
+        delete[] pointerToBinary;
+        delete[] pointerToNewBinaryRepresentation;
+    }
+
+    finalString[i] = '\0';
+    return finalString;
+}
+
+int main() {
+    char input[MAX_SIZE];
+    std::cin.getline(input, MAX_SIZE - 1);
+
+    char* finalString = encodeFinalString(input);
+    std::cout << finalString << std::endl;
+
+    delete[] finalString;
+    return 0;
+}
