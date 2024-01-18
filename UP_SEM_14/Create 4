@@ -1,0 +1,28 @@
+#include <iostream>
+
+bool isAscending(int* array, int length) {
+
+	if (length == 0) return true;
+
+	if (array[length-1] > array[length]) return false;
+
+	isAscending(array, (--length));
+
+}
+
+int main()
+{
+	int n;
+	std::cin >> n;
+
+	int* array = new int[n];
+
+	for (int i = 0; i < n; i++)
+	{
+		std::cin >> array[i];
+	}
+	std::cout << isAscending(array, n - 1);
+
+	delete[] array;
+	return 0;
+}
