@@ -1122,7 +1122,7 @@ int main()
                 }
 
                 if (save == 'r' || save == 'R') break;
-           
+
                 if (c != '\0') {
                     clearConsole();
                 }
@@ -1140,7 +1140,7 @@ int main()
 
                     colIndex = distribution(gen);
                     colIndex++;
-                  
+
 
 
                     if (checkValidShootingCoordinates(pointerToOpponentComputerBoard, boardSize, rowIndex, colIndex)) {
@@ -1165,7 +1165,7 @@ int main()
                 std::cout << rowIndex << std::endl;
                 std::cout << "The index of the column at which the computer shot is!" << std::endl;
                 std::cout << colIndex << std::endl;
-                
+
 
 
                 std::cout << "Press s to save..." << std::endl;
@@ -1198,7 +1198,7 @@ int main()
                 if (save == 'r' || save == 'R') break;
 
 
-               
+
                 if (c != '\0') {
                     clearConsole();
                 }
@@ -1218,11 +1218,10 @@ int main()
             }
 
             else {
-                
-                delete[] pointerToPlayerBoard;
-                delete[] pointerToComputerBoard;
+
+              
                 continue;
-            
+
             }
 
             delete[] pointerToPlayerBoard;
@@ -1486,7 +1485,7 @@ int main()
 
                 if (save == 'r' || save == 'R') break;
 
-            
+
                 if (c != '\0') {
                     clearConsole();
                 }
@@ -1505,8 +1504,7 @@ int main()
 
             else {
 
-                delete[] pointerToPlayer1Board;
-                delete[] pointerToPlayer2Board;
+               
                 continue;
 
             }
@@ -1515,10 +1513,10 @@ int main()
             delete[] pointerToPlayer2Board;
 
 
-            }
-
-
         }
+
+
+    }
 
 
 
