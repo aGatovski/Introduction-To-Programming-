@@ -218,7 +218,7 @@ void loadMatrixPlayer(char** playerBoard, unsigned boardSize) {
 }
 
 void initializeShip(char** playerBoard, unsigned boardSize, char shipLetter, char gameMaster) {
-    char* direction = new char[MAX_STRING_SIZE];
+    char directionOutsideScope;
     unsigned getDirectionLength;
     unsigned shipSize;
     
@@ -249,20 +249,24 @@ void initializeShip(char** playerBoard, unsigned boardSize, char shipLetter, cha
     if (gameMaster == PLAYER) {
         // Get user input for direction
         do {
-
+            char* direction = new char[MAX_STRING_SIZE];
             std::cout << "Please select whether you want to place your ship vertically or horizontally! Type V for vertical and H for horizontal!" << std::endl;
             std::cin.getline(direction,MAX_SIZE);
              getDirectionLength = getStringLength(direction);
 
             if (getDirectionLength > 1 || (direction[0] != 'v' && direction[0] != 'h' && direction[0] != 'V' && direction[0] != 'H')) {
                 std::cout << "Incorrect input! Type V or v for vertical and H or h for horizontal! Try again!" << std::endl;
+                continue;
             }
 
-        } while (getDirectionLength > 1 || (direction[0] != 'v' && direction[0] != 'h' && direction[0] != 'V' && direction[0] != 'H'));
+            directionOutsideScope = direction[0];
+            delete[] direction;
+        } while (getDirectionLength > 1 || (directionOutsideScope != 'v' && directionOutsideScope != 'h' && directionOutsideScope != 'V' && directionOutsideScope != 'H'));
     }
+
     else {
         // Randomly determine direction for computer player
-        direction[0] = distribution(gen) % 2 == 0 ? 'v' : 'h';
+        directionOutsideScope = distribution(gen) % 2 == 0 ? 'v' : 'h';
     }
 
     int row, col;
@@ -302,7 +306,7 @@ void initializeShip(char** playerBoard, unsigned boardSize, char shipLetter, cha
             }
             col++;
 
-            if (!checkValidCoordinates(playerBoard, boardSize, row, col, shipLetter, direction[0])) {
+            if (!checkValidCoordinates(playerBoard, boardSize, row, col, shipLetter, directionOutsideScope)) {
                 std::cout << "Incorrect input! Please try again!" << std::endl; 
                 continue;
             }
@@ -318,13 +322,13 @@ void initializeShip(char** playerBoard, unsigned boardSize, char shipLetter, cha
         delete[] rowInput;
         delete[] colInput;
 
-    } while (!checkValidCoordinates(playerBoard, boardSize, row, col, shipLetter, direction[0]));
+    } while (!checkValidCoordinates(playerBoard, boardSize, row, col, shipLetter, directionOutsideScope));
 
 
     // Place the ship on the board
     for (int i = 0; i < shipSize; ++i) {
-        int curRow = (direction[0] == 'v' || direction[0] == 'V') ? row + i : row;
-        int curCol = (direction[0] == 'h' || direction[0] == 'H') ? col + i : col;
+        int curRow = (directionOutsideScope == 'v' || directionOutsideScope == 'V') ? row + i : row;
+        int curCol = (directionOutsideScope == 'h' || directionOutsideScope == 'H') ? col + i : col;
         playerBoard[curRow][curCol] = shipLetter;
     }
 
@@ -332,7 +336,7 @@ void initializeShip(char** playerBoard, unsigned boardSize, char shipLetter, cha
     printBoard(playerBoard, boardSize);
 
   
-    delete[] direction;
+    
 }
 
 void playPVCGame(unsigned boardSize) {
@@ -552,6 +556,9 @@ void playPVCGame(unsigned boardSize) {
                 clearConsole();
             }
 
+            delete[] rowIndexInput;
+            delete[]colIndexInput;
+
         }
 
         // Final result
@@ -592,7 +599,7 @@ void playPVCGame(unsigned boardSize) {
         delete[] computerBoard;
         delete[] opponentPlayerBoard;
         delete[] opponentComputerBoard;
-
+        delete[] pressToContinueKey;
         return;
 
     }
@@ -603,7 +610,6 @@ void playPVPGame(unsigned boardSize) {
 
     while (true)
     {
-        //char pressToContinueKey;
         char* pressToContinueKey = new char[MAX_STRING_SIZE];
         char gameSave;
         unsigned hitsPlayer1 = 0;
@@ -844,6 +850,8 @@ void playPVPGame(unsigned boardSize) {
                 clearConsole();
             }
 
+            delete[] rowIndexInput;
+            delete[]colIndexInput;
         }
 
 
@@ -882,7 +890,7 @@ void playPVPGame(unsigned boardSize) {
         delete[] player2Board;
         delete[] opponentPlayer1Board;
         delete[] opponentPlayer2Board;
-
+        delete[] pressToContinueKey;
         return;
 
     }
