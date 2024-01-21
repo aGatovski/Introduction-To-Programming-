@@ -253,13 +253,14 @@ void initializeShip(char** playerBoard, unsigned boardSize, char shipLetter, cha
             std::cout << "Please select whether you want to place your ship vertically or horizontally! Type V for vertical and H for horizontal!" << std::endl;
             std::cin.getline(direction,MAX_SIZE);
              getDirectionLength = getStringLength(direction);
+             directionOutsideScope = direction[0];
 
             if (getDirectionLength > 1 || (direction[0] != 'v' && direction[0] != 'h' && direction[0] != 'V' && direction[0] != 'H')) {
                 std::cout << "Incorrect input! Type V or v for vertical and H or h for horizontal! Try again!" << std::endl;
                 continue;
             }
 
-            directionOutsideScope = direction[0];
+            
             delete[] direction;
         } while (getDirectionLength > 1 || (directionOutsideScope != 'v' && directionOutsideScope != 'h' && directionOutsideScope != 'V' && directionOutsideScope != 'H'));
     }
@@ -377,8 +378,7 @@ void playPVCGame(unsigned boardSize) {
         loadMatrixPlayer(opponentComputerBoard, boardSize);
 
         std::cout << "You have chosen your game settings!" << std::endl;
-      
-        std::cout << "Press any key to continue..." << std::endl;
+        std::cout << std::endl;
         std::cin.getline(pressToContinueKey, MAX_SIZE);
         if (pressToContinueKey[0] != '\0') {
             clearConsole();
@@ -646,7 +646,7 @@ void playPVPGame(unsigned boardSize) {
         loadMatrixPlayer(opponentPlayer2Board, boardSize);
 
         std::cout << "You have chosen your game settings!" << std::endl;
-        std::cout << "Press any key to continue..." << std::endl;
+        std::cout << std::endl;
 
         std::cin.getline(pressToContinueKey, MAX_SIZE);
 
