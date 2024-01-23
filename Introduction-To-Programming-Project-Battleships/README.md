@@ -10,8 +10,8 @@ Table of contents:
    1. Project description:
       
       -Your task is to develop software for a game called "Battleships," where two players or a player and a computer can play against each other on a single local device. The game should provide options for placing ships, shooting, and announcing the result.
-
-   2. Key functionalities:
+      
+    2. Key functionalities:
 
 Placing Ships:
 The game should offer an option to place ships on the playing board. Ships can vary in size:
@@ -39,7 +39,24 @@ Include a feature to save the current state of the game, allowing players to con
 Dynamic Game Board Size:
 Allow for dynamic sizing of the playing board, providing players with the option to choose the dimensions of their playing field. This can add flexibility to the game and enhance the overall gaming experience.
 
-  4. Project contents:
+These features contribute to the game's versatility and replay value, allowing players to customize their experience and save their progress for future sessions. 
 
+     4. Project contents:
 
-These features contribute to the versatility and replay value of the game, giving players the ability to customize their experience and save their progress for future sessions. 
+1. Libraries used:
+- <iostream>
+- <random> to generate random placement and shooting coordinates for the "Player versus computer" feature
+
+2. Description of all functions:
+- unsigned getStringLength() - returns the length of a char array
+- unsigned convertCharToUnsigned() - converts a char to an unsigned int
+- void printStartMenu() - prints the contents of the start menu
+- void clearConsole() - clears the contents of the console
+- char saveAndContinue() - saves the current state of the game and upon receiving a command the function lets the current game continue or restarts the game from the begining
+- void printBoard() - prints on the console the contents of the matrix array which represents a player's board
+- bool checkValidCoordinates() - returns true/false depending on whether or not the coordinates given by the player are valid for ship placement
+- bool checkValidShootingCoordinates returns true/false depending on whether or not the coordinates given by the player are valid for shooting
+- void loadMatrixPlayer() - loads the dynamic matrix array which represents a player's board
+- void initializeShip() - depending on the input the function initializes a ship on the player's board. The ship could be any of the above-mentioned ones.
+- void playPVCGame() - starts the "Player versus computer" game feature where a player and the computer take turns playing the game. Firstly, the player initializes his ships then the computer. After that, they take turns shooting until someone sinks all of the opponents' ships first.
+- void playPVCGame() - starts the "Player versus player" game feature where two players take turns playing the game. Firstly, both players initialize their ships. After that, they take turns shooting until someone sinks all of the opponents' ships first.
