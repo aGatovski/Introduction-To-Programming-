@@ -60,3 +60,24 @@ These features contribute to the game's versatility and replay value, allowing p
 - void initializeShip() - depending on the input the function initializes a ship on the player's board. The ship could be any of the above-mentioned ones.
 - void playPVCGame() - starts the "Player versus computer" game feature where a player and the computer take turns playing the game. Firstly, the player initializes his ships then the computer. After that, they take turns shooting until someone sinks all of the opponents' ships first.
 - void playPVCGame() - starts the "Player versus player" game feature where two players take turns playing the game. Firstly, both players initialize their ships. After that, they take turns shooting until someone sinks all of the opponents' ships first.
+  
+  5. Instructions to run the Battleship project:
+
+1.	In the game the project will completely guide the player through the game! The correct commands will always be written on the console and the incorrect inputs will not stop the game from running. The player will have “unlimited” tries until he types the correct input to proceed through every stage of the game.
+2.	Game Style 
+•	The Player will be asked to choose to play against another player(PVP) or a computer(PVC)
+3.	Board initialization
+•	The Player will be asked to type the size of the board that the game will be held on (from a minimum of 5 up to a maximum of 10)
+4.	Ship initialization
+•	If the player has selected the PVP game he and his opponent will take turns initializing their boards with the ships given
+•	If the player has selected the PVC game he will have to initialize his ships then the computer will do the same
+5.	Shooting mechanism
+•	If the player has selected the PVP game he and his opponent will take turns shooting at the opponent's board. If it’s a hit a letter(A,B,C,D) revealing a ship will appear in the space which was shot. If it’s a miss a ‘~’ will appear signaling a hit in the water. Any other space will stay ‘*’ marked as water.
+•	If the player has selected the PVC game he and the computer will take turns shooting at the opponent's board. If it’s a hit a letter(A,B,C,D) revealing a ship will appear in the space which was shot. If it’s a miss a ‘~’ will appear signaling a hit in the water. Any other space will stay ‘*’ marked as water.
+6.	Game end
+•	The game will finish when either one of the players destroys all of the opponent's ships or the computer does that first. 
+
+
+
+
+  
