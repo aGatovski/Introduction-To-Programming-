@@ -44,8 +44,8 @@ These features contribute to the game's versatility and replay value, allowing p
      4. Project contents:
 
 1. Libraries used:
-- <iostream>
-- <random> to generate random placement and shooting coordinates for the "Player versus computer" feature
+- iostream
+- random to generate random placement and shooting coordinates for the "Player versus computer" feature
 
 2. Description of all functions:
 - unsigned getStringLength() - returns the length of a char array
