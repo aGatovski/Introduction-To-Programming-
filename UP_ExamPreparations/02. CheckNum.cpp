@@ -19,7 +19,7 @@ unsigned numberLength(long N) {
 
 }
 
-int checkNum(long n, unsigned m , unsigned l) {
+int checkNum(long n, unsigned m, unsigned l) {
 
 	unsigned numbLen = numberLength(n);
 	unsigned length = numbLen;
@@ -28,28 +28,30 @@ int checkNum(long n, unsigned m , unsigned l) {
 	}
 
 	int* array = new int[numbLen];
-
-	while (n !=  0)
+	
+	while (n != 0)
 	{
-		
-		array[numbLen-1] = (n % 10);
+		array[numbLen - 1] = n - ((n / 10) * 10);
+	
 		n /= 10;
 		numbLen--;
 	}
 
-	
+
 	swap(array[m], array[l]);
 
-	
+
 
 	for (size_t i = 0; i < length; i++)
 	{
 		n = (n * 10) + array[i];
-			
-	}
 
-	return n%4==0 ;
-	
+	}
+	delete[] array;
+	int mask = 3;
+
+	return (n & mask) == 0;
+
 }
 
 
@@ -57,13 +59,13 @@ int main() {
 
 	long N;
 	std::cin >> N;
-	
+
 	unsigned m, l;
 	std::cin >> m >> l;
 
 	std::cout << checkNum(N, m, l);
 
-	
-	
+
+
 
 }
