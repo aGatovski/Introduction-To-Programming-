@@ -13,8 +13,13 @@ size_t myStrLen(const char* str) {
 	return index;
 }
 
+unsigned convertCharToUnsigned(char a) {
+	return a-'0';
+}
+
+
 bool isDigit(char a) {
-	return a > '0' && a < '9';
+	return (a >= '0' && a <= '9');
 }
 
 
@@ -24,28 +29,29 @@ int checkDate(const char* date) {
 		return -1;
 	}
 
-	
 
-	unsigned day=0, month=0, year;
+
+	unsigned day , month , year;
 	size_t length = myStrLen(date);
 
-	if (length != 9 ) {
+	if (length != 10) {
 		return -1;
 	}
 
 	for (size_t i = 0; i < length; i++)
 	{
-		if (i != 2 && i != 5  && (!isDigit(date[i]))) {
+		
+		if (i != 2 && i != 5 && (!isDigit(date[i]))) {
 			return -1;
 		}
 	}
 
 
-	day = date[0] * 10 + date[1];
-	month = date[3] * 10 + date[4];
-	year = date[6] * 1000 + date[7] * 100 + date[8] * 10 + date[9];
+	day = convertCharToUnsigned(date[0]) * 10 + convertCharToUnsigned(date[1]);
+	month = convertCharToUnsigned(date[3]) * 10 + convertCharToUnsigned(date[4]);
+	year = convertCharToUnsigned(date[6]) * 1000 + convertCharToUnsigned(date[7]) * 100 + convertCharToUnsigned(date[8]) * 10 + convertCharToUnsigned(date[9]);
 
-	if(date[2] != '.' || date[5] != '.' ){
+	if (date[2] != '.' || date[5] != '.') {
 		return -1;
 	}
 
@@ -55,8 +61,8 @@ int checkDate(const char* date) {
 
 	if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
 		if (day < 0 || day>31) {
-			
-				return -1;
+
+			return -1;
 		}
 	}
 
@@ -87,6 +93,8 @@ int checkDate(const char* date) {
 	}
 
 
+
+
 	return 1;
 
 }
@@ -100,7 +108,7 @@ int main() {
 
 	std::cout << checkDate(date);
 
-	
-	
+
+
 
 }
