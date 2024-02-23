@@ -1,5 +1,4 @@
 - 👋 Hi, I’m @aGatovski
-- This is my repository where I share my University work from my first year, first semester "Introduction to programming" course;
-- Currently learning C++;
+- This is a repository with examples for the "Introduction To Programming" course given by me at Faculty of Mathematics and Informatics, Sofia University
 - You can contact me at t1t2t3t404@gmail.com
 
